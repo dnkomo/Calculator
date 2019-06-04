@@ -8,10 +8,15 @@ namespace Calculator.Classes.Operators
 {
     public class Operator
     {
-        decimal result;
-        decimal input;
+        private decimal result;
+        private decimal input;
 
         public decimal Result { get => result; set => result = value; }
         public decimal Input { get => input; set => input = value; }
+
+        public Operator()
+        {
+            this.Result = 0;
+        }
     }
 }

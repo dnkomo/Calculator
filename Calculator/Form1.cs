@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculator.Classes.Buttons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,21 @@ namespace Calculator
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region ButtonInitialization
+        ButtonZero buttonZero = new ButtonZero();
+        ButtonOne buttonOne = new ButtonOne();
+        ButtonTwo buttonTwo = new ButtonTwo();
+        ButtonThree buttonThree = new ButtonThree();
+        ButtonFour buttonFour = new ButtonFour();
+        ButtonFive buttonFive = new ButtonFive();
+        ButtonSix buttonSix = new ButtonSix();
+        ButtonSeven buttonSeven = new ButtonSeven();
+        ButtonEight buttonEight = new ButtonEight();
+        ButtonNine buttonNine = new ButtonNine();
+
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
@@ -215,62 +231,52 @@ namespace Calculator
         /// <param name="e"></param>
         private void SevenButton_Click(object sender, EventArgs e)
         {
-            int number = 7;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonSeven.ButtonValue.ToString());
         }
 
         private void EightButton_Click(object sender, EventArgs e)
         {
-            int number = 8;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonEight.ButtonValue.ToString());
         }
 
         private void NineButton_Click(object sender, EventArgs e)
         {
-            int number = 9;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonNine.ButtonValue.ToString());
         }
 
         private void FourButton_Click(object sender, EventArgs e)
         {
-            int number = 4;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonFour.ButtonValue.ToString());
         }
 
         private void FiveButton_Click(object sender, EventArgs e)
         {
-            int number = 5;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonFive.ButtonValue.ToString());
         }
 
         private void SixButton_Click(object sender, EventArgs e)
         {
-            int number = 6;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonSix.ButtonValue.ToString());
         }
 
         private void OneButton_Click(object sender, EventArgs e)
         {
-            int number = 1;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonOne.ButtonValue.ToString());
         }
 
         private void TwoButton_Click(object sender, EventArgs e)
         {
-            int number = 2;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonTwo.ButtonValue.ToString());
         }
 
         private void ThreeButton_Click(object sender, EventArgs e)
         {
-            int number = 3;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonThree.ButtonValue.ToString());
         }
 
         private void ZeroButton_Click(object sender, EventArgs e)
         {
-            int number = 0;
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonZero.ButtonValue.ToString());
         }
 
         private void DecimalButton_Click(object sender, EventArgs e)
