@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Buttons\Button.cs" />
+    <Compile Include="Classes\Const.cs" />
+    <Compile Include="Classes\Operators\Addition.cs" />
+    <Compile Include="Classes\Operators\Division.cs" />
+    <Compile Include="Classes\Operators\IOperator.cs" />
+    <Compile Include="Classes\Operators\Multiplication.cs" />
+    <Compile Include="Classes\Operators\Subtraction.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +69,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Classes\Operators\Operator.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
