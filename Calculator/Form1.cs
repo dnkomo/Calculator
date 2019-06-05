@@ -1,4 +1,6 @@
 ﻿using Calculator.Classes.Buttons;
+using Calculator.Classes.Input;
+using Calculator.Classes.Operators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,7 +40,12 @@ namespace Calculator
         ButtonSeven buttonSeven = new ButtonSeven();
         ButtonEight buttonEight = new ButtonEight();
         ButtonNine buttonNine = new ButtonNine();
-
+        ButtonDecimal buttonDecimal = new ButtonDecimal();
+        InputTextField inputTextField = new InputTextField();
+        Addition addition = new Addition();
+        Subtraction subtraction = new Subtraction();
+        Multiplication multiplication = new Multiplication();
+        Division division = new Division();
         #endregion
 
         private void Form1_Load(object sender, EventArgs e)
@@ -119,7 +126,7 @@ namespace Calculator
 
         private void EqualsButton_Click(object sender, EventArgs e)
         {
-            decimal currentResult = 0.0m;
+            decimal currentResult = 0;
 
             for (int i = 0; i < UserUnputText.Text.Length; i++)
             {
@@ -129,7 +136,7 @@ namespace Calculator
                     decimal result = Convert.ToDecimal(valueArray[0]);
                     decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = Addition(result, input);
+                    currentResult = addition.Calculate(result, input);
                 }
                 if (UserUnputText.Text[i] == '-' && i != 0)
                 {
@@ -137,7 +144,7 @@ namespace Calculator
                     decimal result = Convert.ToDecimal(valueArray[0]);
                     decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = Subtraction(result, input);
+                    currentResult = subtraction.Calculate(result, input);
                 }
                 if (UserUnputText.Text[i] == '*')
                 {
@@ -145,7 +152,7 @@ namespace Calculator
                     decimal result = Convert.ToDecimal(valueArray[0]);
                     decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = Multiply(result, input);
+                    currentResult = multiplication.Calculate(result, input);
                 }
                 if (UserUnputText.Text[i] == '/')
                 {
@@ -153,39 +160,11 @@ namespace Calculator
                     decimal result = Convert.ToDecimal(valueArray[0]);
                     decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = Divide(result, input);
+                    currentResult = division.Calculate(result, input);
                 }
             }
 
             CalculationResultText.Text = currentResult.ToString();
-        }
-
-        private decimal Addition (decimal currentResult, decimal input)
-        {
-            decimal result = currentResult + input;
-
-            return result;
-        }
-
-        private decimal Subtraction(decimal currentResult, decimal input)
-        {
-            decimal result = currentResult - input;
-
-            return result;
-        }
-
-        private decimal Multiply(decimal currentResult, decimal input)
-        {
-            decimal result = currentResult * input;
-
-            return result;
-        }
-
-        private decimal Divide(decimal currentResult, decimal input)
-        {
-            decimal result = currentResult / input;
-
-            return result;
         }
 
         private void OrderOfOperations(object sender, EventArgs e)
@@ -281,8 +260,7 @@ namespace Calculator
 
         private void DecimalButton_Click(object sender, EventArgs e)
         {
-            char number = '.';
-            UserUnputText.AppendText(number.ToString());
+            UserUnputText.AppendText(buttonDecimal.ButtonValue.ToString());
         }
         #endregion
     }

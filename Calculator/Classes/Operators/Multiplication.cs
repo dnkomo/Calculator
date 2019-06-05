@@ -8,9 +8,9 @@ namespace Calculator.Classes.Operators
 {
     public class Multiplication : Operator, IOperator
     {
-        public decimal Calculate()
+        public decimal Calculate(decimal result, decimal input)
         {
-            decimal output = base.Result * base.Input;
+            decimal output = result * input;
 
             return output;
         }

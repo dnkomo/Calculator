@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Buttons\ButtonDecimal.cs" />
     <Compile Include="Classes\Buttons\ButtonEight.cs" />
     <Compile Include="Classes\Buttons\ButtonFive.cs" />
     <Compile Include="Classes\Buttons\ButtonFour.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Classes\Buttons\IButtonNumber.cs" />
     <Compile Include="Classes\Buttons\IButton.cs" />
     <Compile Include="Classes\Const.cs" />
+    <Compile Include="Classes\Input\InputTextField.cs" />
     <Compile Include="Classes\Operators\Addition.cs" />
     <Compile Include="Classes\Operators\Division.cs" />
     <Compile Include="Classes\Operators\Equals.cs" />

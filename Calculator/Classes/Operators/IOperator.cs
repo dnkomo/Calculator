@@ -8,6 +8,6 @@ namespace Calculator.Classes.Operators
 {
     interface IOperator
     {
-        decimal Calculate();
+        decimal Calculate(decimal result, decimal input);
     }
 }
