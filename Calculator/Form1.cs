@@ -126,45 +126,57 @@ namespace Calculator
 
         private void EqualsButton_Click(object sender, EventArgs e)
         {
-            decimal currentResult = 0;
-
-            for (int i = 0; i < UserUnputText.Text.Length; i++)
+            if (!ConsecutiveOperatorCatch(UserUnputText.Text[UserUnputText.Text.Length - 1]))
             {
-                if (UserUnputText.Text[i] == '+')
-                {
-                    string[] valueArray = UserUnputText.Text.Split('+');
-                    decimal result = Convert.ToDecimal(valueArray[0]);
-                    decimal input = Convert.ToDecimal(valueArray[1]);
+                decimal currentResult = 0;
 
-                    currentResult = addition.Calculate(result, input);
-                }
-                if (UserUnputText.Text[i] == '-' && i != 0)
+                for (int i = 0; i < UserUnputText.Text.Length; i++)
                 {
-                    string[] valueArray = UserUnputText.Text.Split('-');
-                    decimal result = Convert.ToDecimal(valueArray[0]);
-                    decimal input = Convert.ToDecimal(valueArray[1]);
+                    if (UserUnputText.Text[i] == '+')
+                    {
+                        string[] valueArray = UserUnputText.Text.Split('+');
+                        decimal result = Convert.ToDecimal(valueArray[0]);
+                        decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = subtraction.Calculate(result, input);
-                }
-                if (UserUnputText.Text[i] == '*')
-                {
-                    string[] valueArray = UserUnputText.Text.Split('*');
-                    decimal result = Convert.ToDecimal(valueArray[0]);
-                    decimal input = Convert.ToDecimal(valueArray[1]);
+                        currentResult = addition.Calculate(result, input);
+                    }
+                    if (UserUnputText.Text[i] == '-' && i != 0 && UserUnputText.Text[0] == '-')
+                    {
+                        string tempString = UserUnputText.Text.Substring(1);
+                        string[] valueArray = tempString.Split('-');
+                        decimal result = Convert.ToDecimal(valueArray[0]) * -1;
+                        decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = multiplication.Calculate(result, input);
-                }
-                if (UserUnputText.Text[i] == '/')
-                {
-                    string[] valueArray = UserUnputText.Text.Split('/');
-                    decimal result = Convert.ToDecimal(valueArray[0]);
-                    decimal input = Convert.ToDecimal(valueArray[1]);
+                        currentResult = subtraction.Calculate(result, input);
+                    }
+                    else if (UserUnputText.Text[i] == '-' && i != 0)
+                    {
+                        string[] valueArray = UserUnputText.Text.Split('-');
+                        decimal result = Convert.ToDecimal(valueArray[0]);
+                        decimal input = Convert.ToDecimal(valueArray[1]);
 
-                    currentResult = division.Calculate(result, input);
+                        currentResult = subtraction.Calculate(result, input);
+                    }
+                    if (UserUnputText.Text[i] == '*')
+                    {
+                        string[] valueArray = UserUnputText.Text.Split('*');
+                        decimal result = Convert.ToDecimal(valueArray[0]);
+                        decimal input = Convert.ToDecimal(valueArray[1]);
+
+                        currentResult = multiplication.Calculate(result, input);
+                    }
+                    if (UserUnputText.Text[i] == '/')
+                    {
+                        string[] valueArray = UserUnputText.Text.Split('/');
+                        decimal result = Convert.ToDecimal(valueArray[0]);
+                        decimal input = Convert.ToDecimal(valueArray[1]);
+
+                        currentResult = division.Calculate(result, input);
+                    }
                 }
+
+                CalculationResultText.Text = currentResult.ToString();
             }
-
-            CalculationResultText.Text = currentResult.ToString();
         }
 
         private void OrderOfOperations(object sender, EventArgs e)
