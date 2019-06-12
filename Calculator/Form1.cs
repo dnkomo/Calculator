@@ -30,16 +30,6 @@ namespace Calculator
         #endregion
 
         #region ButtonInitialization
-        ButtonZero buttonZero = new ButtonZero();
-        ButtonOne buttonOne = new ButtonOne();
-        ButtonTwo buttonTwo = new ButtonTwo();
-        ButtonThree buttonThree = new ButtonThree();
-        ButtonFour buttonFour = new ButtonFour();
-        ButtonFive buttonFive = new ButtonFive();
-        ButtonSix buttonSix = new ButtonSix();
-        ButtonSeven buttonSeven = new ButtonSeven();
-        ButtonEight buttonEight = new ButtonEight();
-        ButtonNine buttonNine = new ButtonNine();
         ButtonDecimal buttonDecimal = new ButtonDecimal();
         InputTextField inputTextField = new InputTextField();
         Addition addition = new Addition();
@@ -56,20 +46,20 @@ namespace Calculator
         #region Clearing Methods
         private void CEButton_Click(object sender, EventArgs e)
         {
-            UserUnputText.ResetText();
+            UserInputText.ResetText();
             CalculationResultText.Text = "Enter an equation and press enter";
         }
 
         private void CButton_Click(object sender, EventArgs e)
         {
-            UserUnputText.ResetText();
+            UserInputText.ResetText();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            if (UserUnputText.Text.Length > 0)
+            if (UserInputText.Text.Length > 0)
             {
-                UserUnputText.Text = UserUnputText.Text.Substring(0, UserUnputText.Text.Length - 1);
+                UserInputText.Text = UserInputText.Text.Substring(0, UserInputText.Text.Length - 1);
             }
         }
         #endregion
@@ -87,7 +77,7 @@ namespace Calculator
             {
                 OrderOfOperations(sender, e);
                 PreviousResultCheck();
-                UserUnputText.AppendText(functionOperator.ToString());
+                UserInputText.AppendText(functionOperator.ToString());
             }
         }
 
@@ -98,7 +88,7 @@ namespace Calculator
             {
                 OrderOfOperations(sender, e);
                 PreviousResultCheck();
-                UserUnputText.AppendText(functionOperator.ToString());
+                UserInputText.AppendText(functionOperator.ToString());
             }
         }
 
@@ -109,7 +99,7 @@ namespace Calculator
             {
                 OrderOfOperations(sender, e);
                 PreviousResultCheck();
-                UserUnputText.AppendText(functionOperator.ToString());
+                UserInputText.AppendText(functionOperator.ToString());
             }
         }
 
@@ -120,54 +110,54 @@ namespace Calculator
             {
                 OrderOfOperations(sender, e);
                 PreviousResultCheck();
-                UserUnputText.AppendText(functionOperator.ToString());
+                UserInputText.AppendText(functionOperator.ToString());
             }
         }
 
         private void EqualsButton_Click(object sender, EventArgs e)
         {
-            if (!ConsecutiveOperatorCatch(UserUnputText.Text[UserUnputText.Text.Length - 1]))
+            if (!ConsecutiveOperatorCatch(UserInputText.Text[UserInputText.Text.Length - 1]))
             {
                 decimal currentResult = 0;
 
-                for (int i = 0; i < UserUnputText.Text.Length; i++)
+                for (int i = 0; i < UserInputText.Text.Length; i++)
                 {
-                    if (UserUnputText.Text[i] == '+')
+                    if (UserInputText.Text[i] == '+')
                     {
-                        string[] valueArray = UserUnputText.Text.Split('+');
+                        string[] valueArray = UserInputText.Text.Split('+');
                         decimal result = Convert.ToDecimal(valueArray[0]);
                         decimal input = Convert.ToDecimal(valueArray[1]);
 
                         currentResult = addition.Calculate(result, input);
                     }
-                    if (UserUnputText.Text[i] == '-' && i != 0 && UserUnputText.Text[0] == '-')
+                    if (UserInputText.Text[i] == '-' && i != 0 && UserInputText.Text[0] == '-')
                     {
-                        string tempString = UserUnputText.Text.Substring(1);
+                        string tempString = UserInputText.Text.Substring(1);
                         string[] valueArray = tempString.Split('-');
                         decimal result = Convert.ToDecimal(valueArray[0]) * -1;
                         decimal input = Convert.ToDecimal(valueArray[1]);
 
                         currentResult = subtraction.Calculate(result, input);
                     }
-                    else if (UserUnputText.Text[i] == '-' && i != 0)
+                    else if (UserInputText.Text[i] == '-' && i != 0)
                     {
-                        string[] valueArray = UserUnputText.Text.Split('-');
+                        string[] valueArray = UserInputText.Text.Split('-');
                         decimal result = Convert.ToDecimal(valueArray[0]);
                         decimal input = Convert.ToDecimal(valueArray[1]);
 
                         currentResult = subtraction.Calculate(result, input);
                     }
-                    if (UserUnputText.Text[i] == '*')
+                    if (UserInputText.Text[i] == '*')
                     {
-                        string[] valueArray = UserUnputText.Text.Split('*');
+                        string[] valueArray = UserInputText.Text.Split('*');
                         decimal result = Convert.ToDecimal(valueArray[0]);
                         decimal input = Convert.ToDecimal(valueArray[1]);
 
                         currentResult = multiplication.Calculate(result, input);
                     }
-                    if (UserUnputText.Text[i] == '/')
+                    if (UserInputText.Text[i] == '/')
                     {
-                        string[] valueArray = UserUnputText.Text.Split('/');
+                        string[] valueArray = UserInputText.Text.Split('/');
                         decimal result = Convert.ToDecimal(valueArray[0]);
                         decimal input = Convert.ToDecimal(valueArray[1]);
 
@@ -179,9 +169,14 @@ namespace Calculator
             }
         }
 
+        private void ButtonStateToggle_Click(object sender, EventArgs e)
+        {
+            UserInputText.Text.IndexOf()
+        }
+
         private void OrderOfOperations(object sender, EventArgs e)
         {
-            if (UserUnputText.Text.Contains('+') || UserUnputText.Text.Contains('-') || UserUnputText.Text.Contains('*') || UserUnputText.Text.Contains('/'))
+            if (UserInputText.Text.Contains('+') || UserInputText.Text.Contains('-') || UserInputText.Text.Contains('*') || UserInputText.Text.Contains('/'))
             {
                 EqualsButton_Click(sender, e);
             }
@@ -191,7 +186,7 @@ namespace Calculator
         {
             if (CalculationResultText.Text.ToString() != "Enter an equation and press enter")
             {
-                UserUnputText.Text = CalculationResultText.Text.ToString();
+                UserInputText.Text = CalculationResultText.Text.ToString();
             }
         }
 
@@ -199,11 +194,11 @@ namespace Calculator
         {
             int unicodeRangeMin = 48;
             int unicodeRangeMax = 57;
-            if (UserUnputText.Text.Length == 0)
+            if (UserInputText.Text.Length == 0)
             {
                 return true;
             }
-            else if (UserUnputText.Text[UserUnputText.Text.Length - 1] >= unicodeRangeMin && UserUnputText.Text[UserUnputText.Text.Length - 1] <= unicodeRangeMax)
+            else if (UserInputText.Text[UserInputText.Text.Length - 1] >= unicodeRangeMin && UserInputText.Text[UserInputText.Text.Length - 1] <= unicodeRangeMax)
             {
                 return false;
             }
@@ -220,59 +215,16 @@ namespace Calculator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SevenButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonSeven.ButtonValue.ToString());
-        }
-
-        private void EightButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonEight.ButtonValue.ToString());
-        }
-
-        private void NineButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonNine.ButtonValue.ToString());
-        }
-
-        private void FourButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonFour.ButtonValue.ToString());
-        }
-
-        private void FiveButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonFive.ButtonValue.ToString());
-        }
-
-        private void SixButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonSix.ButtonValue.ToString());
-        }
-
-        private void OneButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonOne.ButtonValue.ToString());
-        }
-
-        private void TwoButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonTwo.ButtonValue.ToString());
-        }
-
-        private void ThreeButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonThree.ButtonValue.ToString());
-        }
-
-        private void ZeroButton_Click(object sender, EventArgs e)
-        {
-            UserUnputText.AppendText(buttonZero.ButtonValue.ToString());
-        }
-
+        
         private void DecimalButton_Click(object sender, EventArgs e)
         {
-            UserUnputText.AppendText(buttonDecimal.ButtonValue.ToString());
+            UserInputText.AppendText(buttonDecimal.ButtonValue.ToString());
+        }
+
+        private void NumberButton_Click(object sender, EventArgs e)
+        {
+            ButtonNumber btn = (ButtonNumber)sender;
+            UserInputText.AppendText(btn.ButtonValue.ToString());
         }
         #endregion
     }

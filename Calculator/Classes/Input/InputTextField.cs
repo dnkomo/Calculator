@@ -16,5 +16,12 @@ namespace Calculator.Classes.Input
         {
             this.InputString = string.Empty;
         }
+
+        public string Output (string input)
+        {
+            string output = input;
+
+            return output;
+        }
     }
 }

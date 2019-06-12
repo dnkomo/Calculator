@@ -47,15 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Buttons\ButtonDecimal.cs" />
-    <Compile Include="Classes\Buttons\ButtonEight.cs" />
-    <Compile Include="Classes\Buttons\ButtonFive.cs" />
-    <Compile Include="Classes\Buttons\ButtonFour.cs" />
-    <Compile Include="Classes\Buttons\ButtonNine.cs" />
-    <Compile Include="Classes\Buttons\ButtonOne.cs" />
-    <Compile Include="Classes\Buttons\ButtonSeven.cs" />
-    <Compile Include="Classes\Buttons\ButtonSix.cs" />
-    <Compile Include="Classes\Buttons\ButtonThree.cs" />
-    <Compile Include="Classes\Buttons\ButtonTwo.cs" />
+    <Compile Include="Classes\Buttons\ButtonNumber.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Buttons\ButtonNumberEnum.cs" />
     <Compile Include="Classes\Buttons\ButtonZero.cs" />
     <Compile Include="Classes\Buttons\IButtonNumber.cs" />
     <Compile Include="Classes\Buttons\IButton.cs" />
