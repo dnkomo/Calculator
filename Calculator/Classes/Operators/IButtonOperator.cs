@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Calculator.Classes.Operators
 {
-    public class Equals : ButtonOperator
+    public interface IButtonOperator
     {
-        
+        char OperatorCharacter { get; set; }
     }
 }

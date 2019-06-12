@@ -70,47 +70,15 @@ namespace Calculator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MultiplyButton_Click(object sender, EventArgs e)
-        {
-            char functionOperator = '*';
-            if (!ConsecutiveOperatorCatch(functionOperator))
-            {
-                OrderOfOperations(sender, e);
-                PreviousResultCheck();
-                UserInputText.AppendText(functionOperator.ToString());
-            }
-        }
 
-        private void DivideButton_Click(object sender, EventArgs e)
+        private void ButtonOperator_Click (object sender, EventArgs e)
         {
-            char functionOperator = '/';
-            if (!ConsecutiveOperatorCatch(functionOperator))
+            ButtonOperator btn = (ButtonOperator)sender;
+            if (!ConsecutiveOperatorCatch(btn.OperatorCharacter))
             {
                 OrderOfOperations(sender, e);
                 PreviousResultCheck();
-                UserInputText.AppendText(functionOperator.ToString());
-            }
-        }
-
-        private void MinusButton_Click(object sender, EventArgs e)
-        {
-            char functionOperator = '-';
-            if (!ConsecutiveOperatorCatch(functionOperator))
-            {
-                OrderOfOperations(sender, e);
-                PreviousResultCheck();
-                UserInputText.AppendText(functionOperator.ToString());
-            }
-        }
-
-        private void PlusButton_Click(object sender, EventArgs e)
-        {
-            char functionOperator = '+';
-            if (!ConsecutiveOperatorCatch(functionOperator))
-            {
-                OrderOfOperations(sender, e);
-                PreviousResultCheck();
-                UserInputText.AppendText(functionOperator.ToString());
+                UserInputText.AppendText(btn.OperatorCharacter.ToString());
             }
         }
 
@@ -171,7 +139,7 @@ namespace Calculator
 
         private void ButtonStateToggle_Click(object sender, EventArgs e)
         {
-            UserInputText.Text.IndexOf()
+            
         }
 
         private void OrderOfOperations(object sender, EventArgs e)

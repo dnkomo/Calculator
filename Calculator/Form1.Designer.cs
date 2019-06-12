@@ -1,4 +1,5 @@
 ﻿using Calculator.Classes.Buttons;
+using Calculator.Classes.Operators;
 
 namespace Calculator
 {
@@ -36,10 +37,10 @@ namespace Calculator
             this.CEButton = new System.Windows.Forms.Button();
             this.CButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
-            this.DivideButton = new System.Windows.Forms.Button();
-            this.MultiplyButton = new System.Windows.Forms.Button();
-            this.MinusButton = new System.Windows.Forms.Button();
-            this.PlusButton = new System.Windows.Forms.Button();
+            this.DivideButton = new ButtonOperator('/');
+            this.MultiplyButton = new ButtonOperator('*');
+            this.MinusButton = new ButtonOperator('-');
+            this.PlusButton = new ButtonOperator('+');
             this.EqualsButton = new System.Windows.Forms.Button();
             this.DecimalButton = new System.Windows.Forms.Button();
             this.ZeroButton = new ButtonNumber(0);
@@ -159,7 +160,7 @@ namespace Calculator
             this.DivideButton.TabIndex = 3;
             this.DivideButton.Text = "/";
             this.DivideButton.UseVisualStyleBackColor = true;
-            this.DivideButton.Click += new System.EventHandler(this.DivideButton_Click);
+            this.DivideButton.Click += new System.EventHandler(this.ButtonOperator_Click);
             // 
             // MultiplyButton
             // 
@@ -170,7 +171,7 @@ namespace Calculator
             this.MultiplyButton.TabIndex = 4;
             this.MultiplyButton.Text = "X";
             this.MultiplyButton.UseVisualStyleBackColor = true;
-            this.MultiplyButton.Click += new System.EventHandler(this.MultiplyButton_Click);
+            this.MultiplyButton.Click += new System.EventHandler(this.ButtonOperator_Click);
             // 
             // MinusButton
             // 
@@ -181,7 +182,7 @@ namespace Calculator
             this.MinusButton.TabIndex = 5;
             this.MinusButton.Text = "-";
             this.MinusButton.UseVisualStyleBackColor = true;
-            this.MinusButton.Click += new System.EventHandler(this.MinusButton_Click);
+            this.MinusButton.Click += new System.EventHandler(this.ButtonOperator_Click);
             // 
             // PlusButton
             // 
@@ -192,7 +193,7 @@ namespace Calculator
             this.PlusButton.TabIndex = 6;
             this.PlusButton.Text = "+";
             this.PlusButton.UseVisualStyleBackColor = true;
-            this.PlusButton.Click += new System.EventHandler(this.PlusButton_Click);
+            this.PlusButton.Click += new System.EventHandler(this.ButtonOperator_Click);
             // 
             // EqualsButton
             // 
