@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator.Classes.Operators
 {
-    public class Addition : ButtonOperator, IOperator
+    public class Addition : Math, IOperator
     {
         public decimal Calculate(decimal result, decimal input)
         {

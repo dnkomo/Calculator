@@ -31,7 +31,7 @@ namespace Calculator
         /// </summary>
         private void InitializeComponent()
         {
-            this.UserInputText = new System.Windows.Forms.TextBox();
+            this.UserInputText = new System.Windows.Forms.Label();
             this.CalculationResultText = new System.Windows.Forms.Label();
             this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CEButton = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@ namespace Calculator
             this.MultiplyButton = new ButtonOperator('*');
             this.MinusButton = new ButtonOperator('-');
             this.PlusButton = new ButtonOperator('+');
-            this.EqualsButton = new System.Windows.Forms.Button();
+            this.EqualsButton = new ButtonOperator();
             this.DecimalButton = new System.Windows.Forms.Button();
             this.ZeroButton = new ButtonNumber(0);
             this.OneButton = new ButtonNumber(1);
@@ -54,6 +54,7 @@ namespace Calculator
             this.EightButton = new ButtonNumber(8);
             this.NineButton = new ButtonNumber(9);
             this.buttonStateToggle = new System.Windows.Forms.Button();
+            this.math = new Math();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@ namespace Calculator
             this.UserInputText.Name = "UserUnputText";
             this.UserInputText.Size = new System.Drawing.Size(179, 20);
             this.UserInputText.TabIndex = 0;
+            this.UserInputText.Text = "0";
             // 
             // CalculationResultText
             // 
@@ -204,7 +206,7 @@ namespace Calculator
             this.EqualsButton.TabIndex = 7;
             this.EqualsButton.Text = "=";
             this.EqualsButton.UseVisualStyleBackColor = true;
-            this.EqualsButton.Click += new System.EventHandler(this.EqualsButton_Click);
+            this.EqualsButton.Click += new System.EventHandler(this.ButtonOperator_Click);
             // 
             // ZeroButton
             // 
@@ -370,17 +372,17 @@ namespace Calculator
 
         #endregion
 
-        private System.Windows.Forms.TextBox UserInputText;
+        private System.Windows.Forms.Label UserInputText;
         private System.Windows.Forms.Label CalculationResultText;
         private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
         private System.Windows.Forms.Button CEButton;
         private System.Windows.Forms.Button CButton;
         private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.Button DivideButton;
-        private System.Windows.Forms.Button MultiplyButton;
-        private System.Windows.Forms.Button MinusButton;
-        private System.Windows.Forms.Button PlusButton;
-        private System.Windows.Forms.Button EqualsButton;
+        private ButtonOperator DivideButton;
+        private ButtonOperator MultiplyButton;
+        private ButtonOperator MinusButton;
+        private ButtonOperator PlusButton;
+        private ButtonOperator EqualsButton;
         private System.Windows.Forms.Button DecimalButton;
         private System.Windows.Forms.Button buttonStateToggle;
         private ButtonNumber ZeroButton;
@@ -393,6 +395,7 @@ namespace Calculator
         private ButtonNumber SevenButton;
         private ButtonNumber EightButton;
         private ButtonNumber NineButton;
+        private Math math;
     }
 }
 
